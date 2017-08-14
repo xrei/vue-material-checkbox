@@ -1,8 +1,12 @@
 <template>
   <div id="app">
-    <div class="title">
-      <h1>Vue material checkbox</h1>
-    </div>
+    <header class="header">
+      <h1 class="title">Vue material checkbox</h1>
+      <div class="flex">
+      <button class="btn"><a href="https://github.com/romanrei/vue-material-checkbox">Github</a></button>
+      <button class="btn"><a href="https://www.npmjs.com/package/vue-material-checkbox">npm</a></button>
+      </div>
+    </header>
     <div class="example">
       <div class="flex">
         <div class="example-cont">
@@ -74,6 +78,7 @@
         </div>
       </div>
     </div>
+    <footer>&copy Roman 2017</footer>
   </div>
 </template>
 
@@ -104,9 +109,10 @@ export default {
 body, html{
   width: 100%;
   height: 100%;
-  color: #484848;
-  background-color: #212121;
+  color: #212121;
+  background-color: #263238;
   font-family: 'Roboto';
+  line-height: 1.5;
 }
 #app{
   width: 62.5rem;
@@ -115,6 +121,15 @@ body, html{
   justify-content: flex-start;
   flex-flow: column;
   padding: 1rem;
+  padding-top: 0;
+}
+
+header{
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem;
+  flex-flow: column;
+  align-items: center;
 }
 
 .title{
@@ -131,7 +146,7 @@ body, html{
   position: relative;
 
   .example-cont{
-    width: 33.33%;
+    width: 35%;
     display: flex;
     flex-flow: column;
     h2{
@@ -144,7 +159,7 @@ body, html{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 66.66%;
+    width: 65%;
     pre{
       width: 100%;
       font-size: 14px;
@@ -157,5 +172,48 @@ body, html{
 }
 .flex{
   display: flex;
+}
+
+footer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0 0;
+  color: #fff;
+  opacity: .4;
+}
+
+.btn{
+  background-color: #00e5ff;
+  text-transform: uppercase;
+  align-items: center;
+  border-radius: 2px;
+  border: 0;
+  display: inline-flex;
+  height: 36px;
+  flex: 0 1 auto;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  margin: .5rem;
+  min-width: 10rem;
+  outline: 0;
+  text-decoration: none;
+  transition: .3s cubic-bezier(.25,.8,.25,1), color 1ms;
+  position: relative;
+  vertical-align: middle;
+  cursor: pointer;
+  a{
+    text-decoration: none;
+    color: inherit;
+  }
+  &:focus, &:hover{
+    background-color: darken(#00e5ff, 5)
+  }
+  &:active{
+    box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 
+                0 8px 10px 1px rgba(0,0,0,.14), 
+                0 3px 14px 2px rgba(0,0,0,.12);
+  }
 }
 </style>
