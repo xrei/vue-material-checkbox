@@ -44,3 +44,6 @@ You can choose custom color for background of checkbox:
 | `name` | `String` | `undefined` | Name for input |
 | `required` | `Boolean` | `false` | HTML required attr |
 | `disabled` | `Boolean` | `false` | HTML disabled attr |
+
+## todo
+- ripple effect
