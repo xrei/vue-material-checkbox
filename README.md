@@ -29,9 +29,14 @@ You can specify label for checkbox inside checkbox tag:
 <checkbox id="mycheck1" v-model="someVar"> ThisIsLabel </checkbox>
 ```
 
-You can choose custom color for background of checkbox:
+You can set custom color for background of checkbox:
 ```html
 <checkbox id="mycheck1" v-model="someVar" color="#f50057"> ThisIsLabel </checkbox>
+```
+
+You can set size of the checkbox! just add font-size inline style. Size should be `rem` or `em`.
+```html
+<checkbox id="mycheck1" v-model="someVar" style="font-size: 4rem"> ThisIsLabel </checkbox>
 ```
 
 ## Complete props table
