@@ -132,7 +132,7 @@ header{
   margin: 1.5rem;
   flex-flow: column;
   align-items: center;
-  .flex{ flex-flow: row }
+  .flex{ flex-flow: row } 
 }
 
 .title{
@@ -184,7 +184,6 @@ header{
   display: flex;
   @media screen and (max-width: 39.9375em) { 
     flex-flow: column;
-    
   }
 }
 
@@ -207,10 +206,10 @@ footer{
   height: 36px;
   flex: 0 1 auto;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 500;
   justify-content: center;
   margin: .5rem;
-  min-width: 10rem;
+  min-width: 9rem;
   outline: 0;
   text-decoration: none;
   transition: .3s cubic-bezier(.25,.8,.25,1), color 1ms;
