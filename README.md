@@ -1,4 +1,10 @@
-# vue-material-checkbox
+<h1 align="center">Vue material checkbox</h1>
+
+<p align="center">
+<a href="https://www.npmjs.com/package/vue-material-checkbox">
+<img src="https://img.shields.io/npm/v/vue-material-checkbox.svg" alt="NPM version">
+</a>
+</p>
 
 > Material design checkbox component for Vue
 
