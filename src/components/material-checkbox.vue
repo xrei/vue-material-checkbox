@@ -136,6 +136,7 @@ $size: 1.125em;
   .checkbox-group{
     display: flex;
     position: relative;
+    align-items: center;
     > input[type=checkbox]{
       margin: 0; padding: 0;
       position: relative;
