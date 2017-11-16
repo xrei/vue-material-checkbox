@@ -137,6 +137,7 @@ $size: 1.125em;
     display: flex;
     position: relative;
     align-items: center;
+    justify-content: center;
     > input[type=checkbox]{
       margin: 0; padding: 0;
       position: relative;
