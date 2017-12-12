@@ -104,14 +104,14 @@ export default {
     this.genId()
 
     if (this.checked && !this.checkboxState) {
-      this.toggle();
+      this.toggle()
     }
   }
   
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 $base: #009688;
 $size: 1.125em;
 
@@ -125,7 +125,7 @@ $size: 1.125em;
 
   .checkbox_label{
     position: relative;
-    margin-left: 6px;
+    padding-left: 6px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -149,6 +149,7 @@ $size: 1.125em;
       -ms-appearance: none;
       -o-appearance: none;
       appearance: none;
+      cursor: pointer;
       background: #fff;
       border: 2px solid #000;
       border-radius: 2px;
