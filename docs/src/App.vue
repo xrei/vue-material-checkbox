@@ -3,8 +3,8 @@
     <header class="header">
       <h1 class="title">Vue material checkbox</h1>
       <div class="flex">
-      <button class="btn"><a href="https://github.com/romanrei/vue-material-checkbox">Github</a></button>
-      <button class="btn"><a href="https://www.npmjs.com/package/vue-material-checkbox">npm</a></button>
+      <a href="https://github.com/romanrei/vue-material-checkbox"><button class="btn">Github</button></a>
+      <a href="https://www.npmjs.com/package/vue-material-checkbox"><button class="btn">npm</button></a>
       </div>
     </header>
     <div class="example">
@@ -111,6 +111,9 @@ body, html{
   background-color: #263238;
   font-family: 'Roboto';
   line-height: 1.5;
+}
+a{
+  text-decoration: none;
 }
 #app{
   width: 62.5rem;
