@@ -3,7 +3,7 @@
     <header class="header">
       <h1 class="title">Vue material checkbox</h1>
       <div class="flex">
-      <a href="https://github.com/romanrei/vue-material-checkbox"><button class="btn">Github</button></a>
+      <a href="https://github.com/xrei/vue-material-checkbox"><button class="btn">Github</button></a>
       <a href="https://www.npmjs.com/package/vue-material-checkbox"><button class="btn">npm</button></a>
       </div>
     </header>

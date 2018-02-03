@@ -177,7 +177,7 @@ $default-check-color: #fff;
   position: relative;
 	margin: 1rem 0;
   margin-right: 1rem;
-	width: auto;
+	width: 100%;
 	line-height: $size;
   cursor: pointer;
 
