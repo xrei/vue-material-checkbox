@@ -9,7 +9,7 @@
 > Material design checkbox component for Vue
 
 # Demo
-[Here is demo with all features](https://romanrei.github.io/vue-material-checkbox/)
+[Here is demo with all features](https://xrei.github.io/vue-material-checkbox/)
 
 # Use
 ### With npm

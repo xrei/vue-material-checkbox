@@ -76,7 +76,7 @@
         </div>
       </div>
     </div>
-    <footer>&copy Roman 2017</footer>
+    <footer>&copy; Roman 2017</footer>
   </div>
 </template>
 
