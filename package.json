@@ -1,7 +1,7 @@
 {
   "name": "vue-material-checkbox",
   "description": "Checkbox component for Vue",
-  "version": "0.9.2",
+  "version": "0.9.3",
   "author": "Roman",
   "keywords": [
     "material",
