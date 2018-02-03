@@ -58,4 +58,4 @@ You can set size of the checkbox! just add font-size inline style. Size should b
 | `disabled` | `Boolean` | `false` | HTML disabled attr |
 
 ## todo
-- ripple effect
+- ~~ripple effect~~

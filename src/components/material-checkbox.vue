@@ -1,29 +1,40 @@
 <template>
 	<div class="checkbox-container" :class="[classes]">
+		<div class="checkbox-group" 
+        :style="checkboxState ? color && `background-color: ${color}; border-color: ${color};` : null"
+        @click="toggle()">
+
+      <div 
+        class="checkbox-ripple-container" 
+        v-ripple 
+        @click="toggle()">
+        <input type="checkbox"
+          :id="id || uniqueId"
+          :name="name"
+          :value="value"
+          :disabled="disabled"
+          :required="required"
+          :color="color"
+          :checked="checkboxState"
+          @change="toggle()"
+        >
+
+      </div>
+		</div>
 		<label class="checkbox_label"
       :for="id || uniqueId">
-      <slot></slot>
+      <slot/>
     </label>
-		<div class="checkbox-group">
-			<input type="checkbox"
-        :id="id || uniqueId"
-        :name="name"
-        :value="value"
-        :disabled="disabled"
-        :required="required"
-        :color="color"
-
-        :checked="checkboxState"
-        @change="toggle()"
-
-        :style="checkboxState ? color && `background-color: ${color}; border-color: ${color};` : null"
-      >
-		</div>
 	</div>  
 </template>
 
 <script>
+import ripple from './ripple'
+
 export default {
+  directives: {
+    ripple
+  },
   model: {
     prop: 'model',
     event: 'change'
@@ -111,93 +122,120 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 $base: #009688;
-$size: 1.125em;
+$size: 20px;
+$default-check-color: #fff;
+
+.__ripple {
+	&__container{
+		color: inherit;
+		border-radius: inherit;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		left: 0;
+		top: 0;
+		overflow: hidden;
+		z-index: 0;
+		pointer-events: none;
+		contain: strict;
+  }
+	&__animation {
+		color: inherit;
+		position: absolute;
+		top: 0;
+		left: 0;
+		border-radius: 50%;
+		background: currentColor;
+		opacity: 0;
+		transition: .4s cubic-bezier(0.0, 0.0, 0.2, 1);
+		pointer-events: none;
+		overflow: hidden;
+		will-change: transform, opacity;
+  
+		&--enter{
+			transition: none;}
+
+		&--visible{
+			opacity: .15;}
+  }
+}
+.checkbox-ripple-container {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
 
 .checkbox-container{
   box-sizing: border-box;
-	position: relative;
-	display: flex;
+	display: inline-flex;
+  position: relative;
 	margin: 1rem 0;
-	width: 100%;
+  margin-right: 1rem;
+	width: auto;
 	line-height: $size;
+  cursor: pointer;
 
   .checkbox_label{
     position: relative;
-    padding-left: 6px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    order: 1;
+    padding-left: 1rem;
     cursor: pointer;
   }
   
   .checkbox-group{
-    display: flex;
     position: relative;
-    align-items: center;
-    justify-content: center;
-    > input[type=checkbox]{
-      margin: 0; padding: 0;
-      position: relative;
-      height: $size;
-      width: $size;
-      font-size: inherit;
+    border-radius: 2px;
+    border: 2px solid rgba(0,0,0,.54);
+    height: $size;
+    width: $size;
+    min-width: $size;
+    transition: .4s cubic-bezier(.25,.8,.25,1); 
+    input[type=checkbox]{
+      position: absolute;
       -webkit-appearance: none;
-      -moz-appearance: none;
-      -ms-appearance: none;
-      -o-appearance: none;
       appearance: none;
-      cursor: pointer;
-      background: #fff;
-      border: 2px solid #000;
-      border-radius: 2px;
-      opacity: .54;
-      transition: cubic-bezier(.1, .1, 1, .1) .12s;
-      transition-property: border-color, opacity, background-color;
-      &:focus {
-        outline: none;
-      }	
-      &:checked{
-        border-color: $base;
-        background-color: $base;
-        opacity: 1;
-      }
-
-			&:before, &:after{
-				content: '';
-				position: absolute;
-				width: $size; height: $size;
-				background-color: #fff;
-				opacity: 1;
-				transition: transform .25s ease;
-				transform-origin: 0 0;
-				top: -2px;
-				left: -2px;
-			}
-			&:before{
-				transform: translate(.28em, .435em) rotate(45deg) scale(.3,.1);
-			}
-			&:after {
-				transform: translate(0.96em, 0.351em) rotate(135deg) scale(0.58, 0.1);
-			}
-			&:not(:checked):before {
-				transform: translate(.505em,.455em) rotate(45deg) scale(.1,.1);
-			}
-			&:not(:checked):after {
-				transform: translate(.575em,.525em) rotate(135deg) scale(.1,.1);
-			}
+      left: -999rem;
+    }
+  &:after {
+      content: '';
+      position: absolute;
+      transition: transform .25s ease;
+      width: 6px;
+      height: 13px;
+      top: 0;
+      left: 5px;
+      z-index: 6;
+      border: 2px solid $default-check-color;
+      border-top: 0;
+      border-left: 0;
+      opacity: 0;
+      transform: rotate(45deg) scale3D(.1, .1, .1);
+    }    
+  }
+}
+.checkbox-container.checkbox-active {
+  .checkbox-group {
+    background-color: $base;
+    border-color: $base;
+    &:after {
+      opacity: 1;
+      transform: rotate(45deg) scale3D(1, 1, 1);
     }
   }
 }
-
 .checkbox-disabled{
-  .checkbox-group > input[type=checkbox]{
-    opacity: .24;
+  cursor: not-allowed;
+  .checkbox-group {
+    opacity: .14;
   }
-  .checkbox_label{
+  .checkbox_label {
     opacity: .24;
+    cursor: not-allowed;
   }
 }
 </style>

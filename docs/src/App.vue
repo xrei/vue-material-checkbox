@@ -55,27 +55,6 @@
       </div>
     </div>
     <br>
-    <div class="example">
-      <div class="flex">
-        <div class="example-cont">
-          <h3>The checkbox is also resizable</h3>
-          <div class="">
-            <checkbox id="mycheckbox6" v-model="check5" style="font-size: 4rem;">{{ check5 }}</checkbox>
-            <checkbox id="mycheckbox7" v-model="check6" style="font-size: 3rem;">{{ check6 }}</checkbox>
-            <checkbox id="mycheckbox8" v-model="check7" style="font-size: 2rem;">{{ check7 }}</checkbox>
-          </div>
-        </div>
-        <div class="example-code">
-          <pre>
-            <code class="html">
-  &#x3C;checkbox id="mycheckbox6" v-model="check5" style="font-size: 4rem;">{{ check5 }}&#x3C;/checkbox&#x3E;
-  &#x3C;checkbox id="mycheckbox7" v-model="check6" style="font-size: 3rem;">{{ check6 }}&#x3C;/checkbox&#x3E;
-  &#x3C;checkbox id="mycheckbox8" v-model="check7" style="font-size: 2rem;">{{ check7 }}&#x3C;/checkbox&#x3E;
-            </code>
-          </pre>
-        </div>
-      </div>
-    </div>
     <footer>&copy; Roman 2017</footer>
   </div>
 </template>
