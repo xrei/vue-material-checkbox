@@ -162,6 +162,7 @@ $default-check-color: #fff;
   }
 }
 .checkbox-ripple-container {
+  z-index: 1;
   position: absolute;
   width: 48px;
   height: 48px;
