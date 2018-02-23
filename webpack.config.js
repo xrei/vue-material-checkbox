@@ -1,6 +1,7 @@
 var path = require('path')
 var webpack = require('webpack')
 const CompressionPlugin = require('compression-webpack-plugin')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 module.exports = {
   entry: './src/main.js',
@@ -52,9 +53,14 @@ if (process.env.NODE_ENV === 'production') {
         NODE_ENV: '"production"'
       }
     }),
-    new webpack.optimize.UglifyJsPlugin({
-      sourceMap : false
+
+    new UglifyJsPlugin({
+      uglifyOptions: {
+        ecma: 6,
+        compress: true
+      }
     }),
+
     new webpack.LoaderOptionsPlugin({
       minimize: true
     }),
