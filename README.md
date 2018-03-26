@@ -40,11 +40,6 @@ You can set custom color for background of checkbox:
 <checkbox id="mycheck1" v-model="someVar" color="#f50057"> ThisIsLabel </checkbox>
 ```
 
-You can set size of the checkbox! just add font-size inline style. Size should be `rem` or `em`.
-```html
-<checkbox id="mycheck1" v-model="someVar" style="font-size: 4rem"> ThisIsLabel </checkbox>
-```
-
 ## Complete props table
 
 | Prop | Type | Default | What For|
