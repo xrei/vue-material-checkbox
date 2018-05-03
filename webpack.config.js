@@ -9,7 +9,8 @@ module.exports = {
     path: path.resolve(__dirname, './dist'),
     filename: 'vue-material-checkbox.js',
     library: 'vue-material-checkbox',
-    libraryTarget: 'umd'
+    libraryTarget: 'umd',
+    globalObject: 'this'
   },
   module: {
     rules: [
@@ -28,10 +29,6 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.js'
     }
-  },
-  devServer: {
-    historyApiFallback: true,
-    noInfo: true
   }
 }
 
@@ -41,17 +38,6 @@ if (process.env.NODE_ENV === 'production') {
       'process.env': {
         NODE_ENV: '"production"'
       }
-    }),
-
-    new UglifyJsPlugin({
-      uglifyOptions: {
-        ecma: 6,
-        compress: true
-      }
-    }),
-
-    new webpack.LoaderOptionsPlugin({
-      minimize: true
     }),
     new CompressionPlugin({
       asset: "[path].gz[query]",

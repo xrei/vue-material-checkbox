@@ -15,9 +15,9 @@
   "license": "MIT",
   "main": "dist/vue-material-checkbox.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --config docs/webpack.config.js --watch --hot",
-    "docs": "rimraf docs/dist && cross-env NODE_ENV=production webpack --config docs/webpack.config.js --progress --hide-modules",
-    "build": "rimraf dist && cross-env NODE_ENV=production webpack --progress --hide-modules"
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --config docs/webpack.config.js --mode development",
+    "docs": "rimraf docs/dist && cross-env NODE_ENV=production webpack --config docs/webpack.config.js --progress --hide-modules --mode production",
+    "build": "rimraf dist && cross-env NODE_ENV=production webpack --progress --hide-modules --mode production"
   },
   "dependencies": {
     "vue": "^2.5.16"
@@ -35,7 +35,8 @@
     "uglifyjs-webpack-plugin": "^1.2.5",
     "vue-loader": "^14.2.2",
     "vue-template-compiler": "^2.5.16",
-    "webpack": "^3.10.0",
-    "webpack-dev-server": "^2.4.5"
+    "webpack": "^4.6.0",
+    "webpack-cli": "^2.1.2",
+    "webpack-dev-server": "^3.1.4"
   }
 }

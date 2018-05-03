@@ -191,7 +191,7 @@ $default-check-color= #fff
       -webkit-appearance: none
       appearance: none
       left: -999rem
-  &:after
+    &:after
       content: ''
       position: absolute
       transition: transform .25s ease
@@ -211,8 +211,8 @@ $default-check-color= #fff
     background-color: $base
     border-color: $base
     &:after
-      opacity: 1
-      transform: rotate(45deg) scale3D(1, 1, 1)
+      opacity 1
+      transform rotate(45deg) scale3d(1,1,1)
 
 .checkbox-disabled
   cursor: not-allowed
