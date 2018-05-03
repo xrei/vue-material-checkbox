@@ -22,14 +22,15 @@ npm install vue-material-checkbox --save
 import Checkbox from 'vue-material-checkbox'
 Vue.use(Checkbox)
 ```
-Alternatively if component used with server-side-rendering --
+Alternatively if component used with server-side-rendering
+<br>
 Then import as follows below:
 ```javascript
 import Checkbox from '../node_modules/vue-material-checkbox/src/main'
 // assuming  that you're one level higher than root folder where node modules is.
 Vue.use(Checkbox)
 ```
-In this case you will **have** to install *stylus* and *stylus-loader*  to parse styles of this component.
+In this case you will **have** to install *stylus* and *stylus-loader*  to parse styles of component.
 
 - Use it as component:
 ```html
