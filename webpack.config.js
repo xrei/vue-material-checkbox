@@ -34,15 +34,10 @@ module.exports = {
 
 if (process.env.NODE_ENV === 'production') {
   module.exports.plugins = (module.exports.plugins || []).concat([
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: '"production"'
-      }
-    }),
     new CompressionPlugin({
       asset: "[path].gz[query]",
       algorithm: "gzip",
-      test: /\.js$|\.css$|\.html$/,
+      test: /\.js$/,
       threshold: 10240,
       minRatio: 0.8
     })
