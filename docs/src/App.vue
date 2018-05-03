@@ -76,139 +76,124 @@ export default {
 }
 </script>
 
-<style lang="scss">
-*{
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
-	&:before, &:after { box-sizing: inherit; }
-}
-body, html{
-  width: 100%;
-  height: 100%;
-  color: #212121;
-  background-color: #263238;
-  font-family: 'Roboto';
-  line-height: 1.5;
-}
-a{
-  text-decoration: none;
-}
-#app{
-  width: 62.5rem;
-  margin: 0 auto;
-  display: flex;
-  justify-content: flex-start;
-  flex-flow: column;
-  padding: 0 1rem 1rem;
-  @media screen and (max-width: 39.9375em) { 
-    min-height: 100%;
-    width: 100%;
-    padding: 0 .75rem .75rem;
-  }
-}
+<style lang="stylus">
+*
+  box-sizing: border-box
+  margin: 0
+  padding: 0
+  &:before, &:after
+    box-sizing: inherit
 
-header{
-  display: flex;
-  justify-content: center;
-  margin: 1.5rem;
-  flex-flow: column;
-  align-items: center;
-  .flex{ flex-flow: row } 
-}
+body, html
+  width: 100%
+  height: 100%
+  color: #212121
+  background-color: #263238
+  font-family: 'Roboto'
+  line-height: 1.5
 
-.title{
-  margin-bottom: 1rem;
-  text-align: center;
-  color: #fff;
-}
+a
+  text-decoration: none
 
-.example{
-  background-color: #fff;
-  border: 1px solid rgba(0,0,0, .05);
-  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
-  padding: 1rem;
-  position: relative;
+#app
+  width: 62.5rem
+  margin: 0 auto
+  display: flex
+  justify-content: flex-start
+  flex-flow: column
+  padding: 0 1rem 1rem
+  @media screen and (max-width: 39.9375em)
+    min-height: 100%
+    width: 100%
+    padding: 0 .75rem .75rem
 
-  .example-cont{
-    width: 35%;
-    display: flex;
-    flex-flow: column;
-    .flex{ flex-flow: row; }
-    h2{
-      margin-bottom: 1rem;
-      font-size: 20px;
-    }
-    @media screen and (max-width: 39.9375em) { 
-      width: 100%;
-    }
-  }
-  .example-code{
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 65%;
-    @media screen and (max-width: 39.9375em) { 
-      width: 100%;
-    }    
-    pre{
-      width: 100%;
-      font-size: 14px;
-      overflow: scroll;
-      code{
-        padding: 1rem;
-      }
-    }
-  }
-}
-.flex{
-  display: flex;
-  @media screen and (max-width: 39.9375em) { 
-    flex-flow: column;
-  }
-}
+header
+  display: flex
+  justify-content: center
+  margin: 1.5rem
+  flex-flow: column
+  align-items: center
+  .flex
+    flex-flow: row
 
-footer{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 2rem 0 0;
-  color: #fff;
-  opacity: .4;
-}
+.title
+  margin-bottom: 1rem
+  text-align: center
+  color: #fff
 
-.btn{
-  background-color: #00e5ff;
-  text-transform: uppercase;
-  align-items: center;
-  border-radius: 2px;
-  border: 0;
-  display: inline-flex;
-  height: 36px;
-  flex: 0 1 auto;
-  font-size: 16px;
-  font-weight: 500;
-  justify-content: center;
-  margin: .5rem;
-  min-width: 9rem;
-  outline: 0;
-  text-decoration: none;
-  transition: .3s cubic-bezier(.25,.8,.25,1), color 1ms;
-  position: relative;
-  vertical-align: middle;
-  cursor: pointer;
-  a{
-    text-decoration: none;
-    color: inherit;
-  }
-  &:focus, &:hover{
+.example
+  background-color: #fff
+  border: 1px solid rgba(0,0,0, .05)
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2)
+  padding: 1rem
+  position: relative
+
+  .example-cont
+    width: 35%
+    display: flex
+    flex-flow: column
+
+    .flex
+      flex-flow: row
+    h2
+      margin-bottom: 1rem
+      font-size: 20px
+    @media screen and (max-width: 39.9375em)
+      width: 100%
+
+  .example-code
+    position: relative
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 65%
+    @media screen and (max-width: 39.9375em)
+      width: 100%
+    pre
+      width: 100%
+      font-size: 14px
+      overflow: scroll
+      code
+        padding: 1rem
+.flex
+  display: flex
+  @media screen and (max-width: 39.9375em)
+    flex-flow: column
+
+footer
+  display: flex
+  justify-content: center
+  align-items: center
+  margin: 2rem 0 0
+  color: #fff
+  opacity: .4
+
+.btn
+  background-color: #00e5ff
+  text-transform: uppercase
+  align-items: center
+  border-radius: 2px
+  border: 0
+  display: inline-flex
+  height: 36px
+  flex: 0 1 auto
+  font-size: 16px
+  font-weight: 500
+  justify-content: center
+  margin: .5rem
+  min-width: 9rem
+  outline: 0
+  text-decoration: none
+  transition: .3s cubic-bezier(.25,.8,.25,1), color 1ms
+  position: relative
+  vertical-align: middle
+  cursor: pointer
+  a
+    text-decoration: none
+    color: inherit
+  &:focus, &:hover
     background-color: darken(#00e5ff, 5)
-  }
-  &:active{
-    box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 
-                0 8px 10px 1px rgba(0,0,0,.14), 
-                0 3px 14px 2px rgba(0,0,0,.12);
-  }
-}
+  &:active
+    box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12)
+
 </style>

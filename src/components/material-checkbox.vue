@@ -122,10 +122,10 @@ export default {
 }
 </script>
 
-<style lang="scss">
-$base: #009688;
-$size: 20px;
-$default-check-color: #fff;
+<style lang="stylus">
+$base= #009688
+$size= 20px
+$default-check-color= #fff
 
 .__ripple {
 	&__container{
