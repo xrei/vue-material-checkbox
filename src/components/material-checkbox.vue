@@ -155,7 +155,8 @@ $default-check-color= #fff
       transition: none
     &--visible
       opacity: .15
-.checkbox-ripple-container 
+.checkbox-ripple-container
+  box-sizing border-box
   z-index: 1
   position: absolute
   width: 48px
@@ -179,6 +180,7 @@ $default-check-color= #fff
     padding-left: 1rem
     cursor: pointer
   .checkbox-group
+    box-sizing border-box
     position: relative
     border-radius: 2px
     border: 2px solid rgba(0,0,0,.54)
