@@ -192,6 +192,7 @@ $default-check-color= #fff
       appearance: none
       left: -999rem
     &:after
+      box-sizing inherit
       content: ''
       position: absolute
       transition: transform .25s ease
