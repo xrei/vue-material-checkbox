@@ -1,6 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
-const { VueLoaderPlugin } = require('vue-loader')
+// const { VueLoaderPlugin } = require('vue-loader')
 
 module.exports = {
   context: __dirname,
@@ -21,14 +21,6 @@ module.exports = {
         loader: 'babel-loader',
         exclude: /node_modules/
       },
-      {
-        test: /\.styl(us)?$/,
-        use: [
-            'vue-style-loader',
-            'css-loader',
-            'stylus-loader'
-          ]
-      }
     ]
   },
   resolve: {
@@ -47,7 +39,7 @@ module.exports = {
     }
   },
   plugins: [
-    new VueLoaderPlugin()
+    // new VueLoaderPlugin()
   ]
 }
 
