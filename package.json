@@ -2,7 +2,7 @@
   "name": "vue-material-checkbox",
   "description": "Checkbox component for Vue",
   "version": "1.1.2",
-  "author": "Roman@rei",
+  "author": "rei",
   "keywords": [
     "material",
     "checkbox",
@@ -21,22 +21,22 @@
     "build": "rimraf dist && cross-env NODE_ENV=production webpack --progress --hide-modules --mode production"
   },
   "dependencies": {
-    "vue": "^2.5.16"
+    "vue": "^2.5.17"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.6.1",
-    "compression-webpack-plugin": "^1.1.11",
-    "cross-env": "^5.1.4",
-    "css-loader": "^0.28.11",
+    "compression-webpack-plugin": "^2.0.0",
+    "cross-env": "^5.2.0",
+    "css-loader": "^1.0.1",
     "rimraf": "^2.6.2",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
-    "vue-loader": "^14.2.2",
-    "vue-template-compiler": "^2.5.16",
-    "webpack": "^4.6.0",
-    "webpack-cli": "^2.1.2",
-    "webpack-dev-server": "^3.1.4"
+    "vue-loader": "^15.4.2",
+    "vue-template-compiler": "^2.5.17",
+    "webpack": "^4.23.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10"
   }
 }

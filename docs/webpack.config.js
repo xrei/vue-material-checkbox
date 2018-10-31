@@ -1,5 +1,6 @@
-var path = require('path')
-var webpack = require('webpack')
+const path = require('path')
+const webpack = require('webpack')
+const { VueLoaderPlugin } = require('vue-loader')
 
 module.exports = {
   context: __dirname,
@@ -19,6 +20,14 @@ module.exports = {
         test: /\.js$/,
         loader: 'babel-loader',
         exclude: /node_modules/
+      },
+      {
+        test: /\.styl(us)?$/,
+        use: [
+            'vue-style-loader',
+            'css-loader',
+            'stylus-loader'
+          ]
       }
     ]
   },
@@ -36,7 +45,10 @@ module.exports = {
     stats: {
       modules: false
     }
-  }
+  },
+  plugins: [
+    new VueLoaderPlugin()
+  ]
 }
 
 if (process.env.NODE_ENV === 'development') {
