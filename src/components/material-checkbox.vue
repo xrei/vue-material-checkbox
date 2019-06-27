@@ -39,6 +39,7 @@
 import ripple from './ripple'
 
 export default {
+  name: 'Checkbox',
   directives: {
     ripple
   },
