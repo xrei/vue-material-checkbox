@@ -12,7 +12,14 @@
         <div class="example-cont">
         <h2>Group check</h2>
           <div class="flex">
-            <checkbox id="" value="cat" v-model="values" color="#f50057">Cat</checkbox>
+            <checkbox 
+              value="cat"
+              v-model="values"
+              color="#f50057"
+              checked
+              :size="32"
+              :fontSize="20"
+            >Cat</checkbox>
             <checkbox id="" value="dog" v-model="values">Dog</checkbox>
             <checkbox id="" value="husky" v-model="values">Husky</checkbox>
             <checkbox id="" value="fish" v-model="values">fish</checkbox>
