@@ -4,5 +4,4 @@ export default function install(Vue) {
   Vue.component('Checkbox', VueCheckbox)
 }
 
-
 export { VueCheckbox }
