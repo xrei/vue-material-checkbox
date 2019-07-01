@@ -1,7 +1,9 @@
-import VueCheckbox from './components/material-checkbox.vue'
+import VueCheckbox from './material-checkbox.vue'
 
-export default function install(Vue) {
+export function install(Vue) {
+  if (install.installed) return
+	install.installed = true
   Vue.component('Checkbox', VueCheckbox)
 }
 
-export { VueCheckbox }
+export default VueCheckbox

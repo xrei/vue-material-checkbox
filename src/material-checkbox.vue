@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import ripple from './ripple'
+import ripple from './utils/ripple'
 
 export default {
   name: 'Checkbox',
@@ -229,4 +229,10 @@ $default-check-color= #fff
     opacity: .24
     cursor: not-allowed
 
+</style>
+
+<style>
+.kek {
+  display: flex;
+}
 </style>
