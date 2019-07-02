@@ -28,7 +28,6 @@ export default {
   components: {Checkbox}
 }
 ```
-<br>
 - Import to the app and add to the Vue (not recommended)
 ```javascript
 import { globalCheckbox } from 'vue-material-checkbox'
