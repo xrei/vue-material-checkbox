@@ -1,13 +1,13 @@
 import VueCheckbox from './material-checkbox.vue'
 
-export function globalChecbox(Vue) {
-  if (globalChecbox.installed) return
-	globalChecbox.installed = true
+export function globalCheckbox(Vue) {
+  if (globalCheckbox.installed) return
+	globalCheckbox.installed = true
   Vue.component('Checkbox', VueCheckbox)
 }
 
 const plugin = {
-	install: globalChecbox
+	install: globalCheckbox
 }
 
 // Auto-install
