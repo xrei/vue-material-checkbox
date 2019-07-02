@@ -11,6 +11,9 @@
 # Demo ✅
 [Here is demo with all features](https://xrei.github.io/vue-material-checkbox/)
 
+## Breaking changes from v1
+Rename plugin default name from `checkbox` to `Checkbox`
+
 # Use ❓
 ### With npm
 - Install plugin
