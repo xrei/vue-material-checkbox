@@ -70,7 +70,7 @@ export default {
   }),
   computed: {
     checkboxState() {
-      if (this.model === undefined) return this.value || this.checked
+      if (this.model === undefined) return this.value
       if (Array.isArray(this.model)) return this.model.indexOf(this.value) !== -1
       return this.model || this.value
     },
@@ -109,7 +109,6 @@ export default {
 
       if (Array.isArray(value)) {
         const i = value.indexOf(this.value)
-
         if (i === -1) value.push(this.value)
         else value.splice(i, 1)
       } 

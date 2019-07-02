@@ -45,17 +45,22 @@
         <div class="example-cont">
           <h2>Simple check/checked/disabled</h2>
           <div class="flex">
-            <Checkbox id="mycheckbox3" :value="check2" @change="handleChange">{{ check2 }}</Checkbox>
-            <Checkbox id="mycheckbox4" v-model="check3" checked>{{ check3 }}</Checkbox>
-            <Checkbox id="mycheckbox5" v-model="check4" disabled>{{ check4 }}</Checkbox>
+            <Checkbox
+              v-for="(box, id) in checks"
+              :key="id"
+              :value="box.check"
+              :checked="box.checked"
+              :disabled="box.disabled"
+              @change="handleChange(box)"
+            >{{ box.check }}</Checkbox>
           </div>
         </div>
         <div class="example-code">
           <pre>
             <code class="html">
-  &#x3C;Checkbox id="mycheckbox3" v-model="check2">{{ check2 }}&#x3C;/Checkbox&#x3E;
-  &#x3C;Checkbox id="mycheckbox4" v-model="check3" checked>{{ check3 }}&#x3C;/Checkbox&#x3E;
-  &#x3C;Checkbox id="mycheckbox5" v-model="check4" disabled>{{ check4 }}&#x3C;/Checkbox&#x3E;
+  &#x3C;Checkbox id="mycheckbox3" v-model="check2">&#x3C;/Checkbox&#x3E;
+  &#x3C;Checkbox id="mycheckbox4" v-model="check3" checked>&#x3C;/Checkbox&#x3E;
+  &#x3C;Checkbox id="mycheckbox5" v-model="check4" disabled>&#x3C;/Checkbox&#x3E;
             </code>
           </pre>
         </div>
@@ -74,18 +79,17 @@ export default {
   name: 'app',
   data() { 
     return {
-      check2: true,
-      check3: false,
-      check4: false,
-      check5: false,
-      check6: false,
-      check7: false,
+      checks: [
+        { check: false },
+        { check: false, checked: true },
+        { check: false, disabled: true },
+      ],
       values: []
     }
   },
   methods: {
-    handleChange(e) {
-      this.check2 = !this.check2
+    handleChange(box) {
+      box.check = !box.check
     }
   }
 }
