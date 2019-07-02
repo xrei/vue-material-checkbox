@@ -45,7 +45,7 @@
         <div class="example-cont">
           <h2>Simple check/checked/disabled</h2>
           <div class="flex">
-            <Checkbox id="mycheckbox3" v-model="check2">{{ check2 }}</Checkbox>
+            <Checkbox id="mycheckbox3" :value="check2" @change="handleChange">{{ check2 }}</Checkbox>
             <Checkbox id="mycheckbox4" v-model="check3" checked>{{ check3 }}</Checkbox>
             <Checkbox id="mycheckbox5" v-model="check4" disabled>{{ check4 }}</Checkbox>
           </div>
@@ -74,13 +74,18 @@ export default {
   name: 'app',
   data() { 
     return {
-      check2: false,
+      check2: true,
       check3: false,
       check4: false,
       check5: false,
       check6: false,
       check7: false,
       values: []
+    }
+  },
+  methods: {
+    handleChange(e) {
+      this.check2 = !this.check2
     }
   }
 }

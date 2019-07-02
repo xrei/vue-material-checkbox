@@ -57,7 +57,7 @@ export default {
       default: undefined
     },
     checked: Boolean,
-    value: String,
+    value: [String, Boolean],
     name: String,
     required: Boolean,
     disabled: Boolean,
@@ -70,9 +70,9 @@ export default {
   }),
   computed: {
     checkboxState() {
-      if (this.model === undefined) return this.checked
+      if (this.model === undefined) return this.value || this.checked
       if (Array.isArray(this.model)) return this.model.indexOf(this.value) !== -1
-      return this.model
+      return this.model || this.value
     },
     classes() {
       return {
@@ -105,7 +105,7 @@ export default {
     toggle() {
       if(this.disabled) return
 
-      let value = this.model
+      let value = this.model || this.value
 
       if (Array.isArray(value)) {
         const i = value.indexOf(this.value)
