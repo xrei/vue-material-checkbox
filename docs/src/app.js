@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import App from './App.vue'
 
-import checkbox from '../../src/main'
-
-Vue.use(checkbox)
+// import { globalCheckbox } from '../../src/main'
+// global scope installation
+// Vue.use(globalCheckbox)
 
 new Vue({
   el: '#app',

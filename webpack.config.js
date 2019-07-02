@@ -1,6 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
-// const { VueLoaderPlugin } = require('vue-loader')
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 module.exports = {
   entry: './src/main.js',
@@ -16,12 +16,32 @@ module.exports = {
       {
         test: /\.vue$/,
         loader: 'vue-loader',
+        options: {
+          compilerOptions: {
+            preserveWhitespace: false
+          }
+        }
       },
       {
         test: /\.js$/,
         loader: 'babel-loader',
         exclude: /node_modules/
       },
+      {
+        test: /\.css$/,
+        use: [
+          'vue-style-loader',
+          'css-loader'
+        ]
+      },
+      {
+        test: /\.styl(us)?$/,
+        use: [
+          'vue-style-loader',
+          'css-loader',
+          'stylus-loader'
+        ]
+      }
     ]
   },
   resolve: {
@@ -30,6 +50,6 @@ module.exports = {
     }
   },
   plugins: [
-    // new VueLoaderPlugin()
+    new VueLoaderPlugin()
   ]
 }

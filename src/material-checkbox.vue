@@ -1,13 +1,19 @@
 <template>
-  <div class="checkbox-container" :class="[classes]">
-    <div class="checkbox-group" 
-        :style="checkboxState ? color && `background-color: ${color}; border-color: ${color};` : null"
-        @click="toggle()">
-
+  <div class="m-chckbox--container" :class="[classes]">
+    <div class="m-chckbox--group" 
+      :style="mainStyle + sizeStyles"
+      @click="toggle"
+    >
+      <div v-if="checkboxState">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="#fff" viewBox="0 0 24 24">
+          <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+        </svg>
+      </div>
       <div 
-        class="checkbox-ripple-container" 
+        class="m-chckbox--ripple"
+        :style="rippleSizeStyles"
         v-ripple 
-        @click="toggle()">
+      >
         <input type="checkbox"
           :id="id || uniqueId"
           :name="name"
@@ -16,22 +22,24 @@
           :required="required"
           :color="color"
           :checked="checkboxState"
-          @change="toggle()"
         >
-
       </div>
     </div>
-    <label class="checkbox_label"
-      :for="id || uniqueId">
+    <label
+      :style="fontSizeStyles"
+      class="m-chckbox--label"
+      :for="id || uniqueId"
+    >
       <slot/>
     </label>
   </div>  
 </template>
 
 <script>
-import ripple from './ripple'
+import ripple from './utils/ripple'
 
 export default {
+  name: 'Checkbox',
   directives: {
     ripple
   },
@@ -53,28 +61,44 @@ export default {
     name: String,
     required: Boolean,
     disabled: Boolean,
-    color: String
+    color: String,
+    size: Number,
+    fontSize: Number
   },
-  data() {
-    return {
-      uniqueId: ''
-    }
-  },
+  data: () => ({
+    uniqueId: ''
+  }),
   computed: {
     checkboxState() {
-      if (this.model === undefined)
-        return this.checked
-
-      if (Array.isArray(this.model))
-        return this.model.indexOf(this.value) !== -1
-
+      if (this.model === undefined) return this.checked
+      if (Array.isArray(this.model)) return this.model.indexOf(this.value) !== -1
       return this.model
     },
     classes() {
       return {
-        'checkbox-disabled': this.disabled,
-        'checkbox-active': this.checkboxState
+        'disabled': this.disabled,
+        'active': this.checkboxState
       }
+    },
+    mainStyle() {
+      return this.checkboxState
+        ? this.color && `background-color: ${this.color}; border-color: ${this.color};`
+        : ''
+    },
+    sizeStyles() {
+      return this.size
+        ? `width: ${this.size}px; height: ${this.size}px; `
+        : ''
+    },
+    rippleSizeStyles() {
+      return this.size
+        ? `width: ${this.size + 28}px; height: ${this.size + 28}px;`
+        : ''
+    },
+    fontSizeStyles() {
+      return this.fontSize
+        ? `font-size: ${this.fontSize}px`
+        : ''
     }
   },
   methods: {
@@ -84,31 +108,28 @@ export default {
       let value = this.model
 
       if (Array.isArray(value)) {
-        value = value.slice()
         const i = value.indexOf(this.value)
 
-        if (i === -1)
-          value.push(this.value)
-        else 
-          value.splice(i, 1)
+        if (i === -1) value.push(this.value)
+        else value.splice(i, 1)
       } 
-      else 
-        value = !this.checkboxState
+      else value = !this.checkboxState
 
       this.$emit('change', value)
     },
 
     genId() {
-      if (this.id === undefined || typeof String)
+      if (this.id === undefined || typeof String) {
         this.uniqueId = `m-checkbox--${Math.random().toString(36).substring(2,10)}`
-      else
+      }
+      else {
         this.uniqueId = this.id
+      }
     }
   },
   watch: {
-    checked(newVal) {
-      if (newVal !== this.checkboxState)
-        this.toggle()
+    checked(v) {
+      if (v !== this.checkboxState) this.toggle()
     }
   },
   mounted() {
@@ -155,73 +176,57 @@ $default-check-color= #fff
       transition: none
     &--visible
       opacity: .15
-.checkbox-ripple-container
-  box-sizing border-box
-  z-index: 1
-  position: absolute
-  width: 48px
-  height: 48px
-  top: 50%
-  left: 50%
-  transform: translate(-50%, -50%)
-  border-radius: 50%
 
-.checkbox-container
-  box-sizing: border-box
-  display: inline-flex
-  position: relative
-  margin: 1rem 0
-  margin-right: 1rem
-  width: 100%
-  line-height: $size
-  cursor: pointer
-  .checkbox_label
+.m-chckbox
+  &--container
+    box-sizing: border-box
+    display: inline-flex
+    position: relative
+    margin: 1rem 0
+    margin-right: 1rem
+    width: 100%
+    line-height: $size
+    cursor: pointer
+    align-items center
+  &--ripple
+    box-sizing border-box
+    z-index: 1
+    position: absolute
+    width: 48px
+    height: 48px
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    border-radius: 50%
+  &--label
     position: relative
     padding-left: 1rem
     cursor: pointer
-  .checkbox-group
+  &--group
     box-sizing border-box
     position: relative
     border-radius: 2px
     border: 2px solid rgba(0,0,0,.54)
     height: $size
     width: $size
-    min-width: $size
     transition: .4s cubic-bezier(.25,.8,.25,1) 
     input[type=checkbox]
       position: absolute
       -webkit-appearance: none
       appearance: none
       left: -999rem
-    &:after
-      box-sizing inherit
-      content: ''
-      position: absolute
-      transition: transform .25s ease
-      width: 6px
-      height: 13px
-      top: 0
-      left: 5px
-      z-index: 6
-      border: 2px solid $default-check-color
-      border-top: 0
-      border-left: 0
-      opacity: 0
-      transform: rotate(45deg) scale3D(.1, .1, .1)
 
-.checkbox-container.checkbox-active
-  .checkbox-group
+.m-chckbox--container.active
+  .m-chckbox--group
     background-color: $base
     border-color: $base
-    &:after
-      opacity 1
-      transform rotate(45deg) scale3d(1,1,1)
 
-.checkbox-disabled
+.m-chckbox--container.disabled
   cursor: not-allowed
-  .checkbox-group
+  .m-chckbox--group
     opacity: .14
-  .checkbox_label
+  .m-chckbox--label
     opacity: .24
     cursor: not-allowed
+
 </style>
