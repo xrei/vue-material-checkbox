@@ -27,7 +27,7 @@
           <span>{{ values }}</span>
         </div>
         <div class="example-code">
-          <pre>
+          <pre v-pre>
             <code class="html">
   &#x3C;Checkbox value="cat" v-model="values" color="#f50057">Cat&#x3C;/Checkbox&#x3E;
   &#x3C;Checkbox value="dog" v-model="values">Dog&#x3C;/Checkbox&#x3E;
@@ -56,11 +56,16 @@
           </div>
         </div>
         <div class="example-code">
-          <pre>
+          <pre v-pre>
             <code class="html">
-  &#x3C;Checkbox id="mycheckbox3" v-model="check2">&#x3C;/Checkbox&#x3E;
-  &#x3C;Checkbox id="mycheckbox4" v-model="check3" checked>&#x3C;/Checkbox&#x3E;
-  &#x3C;Checkbox id="mycheckbox5" v-model="check4" disabled>&#x3C;/Checkbox&#x3E;
+&#x3C;Checkbox
+  v-for="(box, id) in checks"
+  :key="id"
+  :value="box.check"
+  :checked="box.checked"
+  :disabled="box.disabled"
+  @change="handleChange(box)"
+&#x3E;{{ box.check }}&#x3C;/Checkbox&#x3E;
             </code>
           </pre>
         </div>
