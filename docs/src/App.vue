@@ -62,7 +62,7 @@
       </div>
     </div>
     <br>
-    <footer>&copy; Roman 2017</footer>
+    <footer>&copy; Roman 2017-2019</footer>
   </div>
 </template>
 
