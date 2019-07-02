@@ -230,9 +230,3 @@ $default-check-color= #fff
     cursor: not-allowed
 
 </style>
-
-<style>
-.kek {
-  display: flex;
-}
-</style>
