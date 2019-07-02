@@ -17,7 +17,16 @@
 ```
 npm install vue-material-checkbox --save
 ```
-- Import to the app and add to the Vue
+- Import to the component (recommended way)
+```javascript
+// inside vue SFC
+import Checkbox from 'vue-material-checkbox'
+export default {
+  components: {Checkbox}
+}
+```
+<br>
+- Import to the app and add to the Vue (not recommended)
 ```javascript
 import { globalCheckbox } from 'vue-material-checkbox'
 Vue.use(globalCheckbox)
