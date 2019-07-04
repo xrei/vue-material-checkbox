@@ -17,8 +17,6 @@
               v-model="values"
               color="#f50057"
               checked
-              :size="32"
-              :fontSize="20"
             >Cat</Checkbox>
             <Checkbox id="" value="dog" v-model="values">Dog</Checkbox>
             <Checkbox id="" value="husky" v-model="values">Husky</Checkbox>
@@ -72,6 +70,38 @@
       </div>
     </div>
     <br>
+    <div class="example">
+      <div class="flex">
+        <div class="example-cont">
+          <h2>Checkbox sizes</h2>
+          <div class="flex">
+            <Checkbox 
+              v-model="csize1"
+              color="#f50057"
+              checked
+              :size="48"
+              :fontSize="20"
+            >size 48px</Checkbox>
+            <Checkbox 
+              v-model="csize2"
+              color="#0070ff"
+              checked
+              :size="32"
+              :fontSize="20"
+            >size 32px</Checkbox>
+          </div>
+        </div>
+        <div class="example-code">
+          <pre v-pre>
+            <code class="html">
+  &#x3C;Checkbox v-model="value" color="#f50057" :size="48">size 48px&#x3C;/Checkbox&#x3E;
+  &#x3C;Checkbox v-model="value" color="#0070ff" :size="32">size 32px&#x3C;/Checkbox&#x3E;
+            </code>
+          </pre>
+        </div>
+      </div>
+    </div>
+    <br>
     <footer>&copy; Roman 2017-2019</footer>
   </div>
 </template>
@@ -89,7 +119,9 @@ export default {
         { check: false, checked: true },
         { check: false, disabled: true },
       ],
-      values: []
+      values: [],
+      csize1: false,
+      csize2: false
     }
   },
   methods: {
