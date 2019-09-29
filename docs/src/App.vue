@@ -18,7 +18,7 @@
               color="#f50057"
               checked
             >Cat</Checkbox>
-            <Checkbox id="" value="dog" v-model="values">Dog</Checkbox>
+            <Checkbox id="" :value="55" v-model="values">55</Checkbox>
             <Checkbox id="" value="husky" v-model="values">Husky</Checkbox>
             <Checkbox id="" value="fish" v-model="values">fish</Checkbox>
           </div>
@@ -75,10 +75,10 @@
         <div class="example-cont">
           <h2>Checkbox sizes</h2>
           <div class="flex">
-            <Checkbox 
-              v-model="csize1"
+            <Checkbox
+              v-model="csize1" 
+              :value="csize1v"
               color="#f50057"
-              checked
               :size="48"
               :fontSize="20"
             >size 48px</Checkbox>
@@ -121,6 +121,7 @@ export default {
       ],
       values: [],
       csize1: false,
+      csize1v: [123],
       csize2: false
     }
   },

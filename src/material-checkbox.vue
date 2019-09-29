@@ -53,11 +53,11 @@ export default {
       default: undefined
     },
     model: {
-      type: String | Array,
+      type: [Boolean, Array],
       default: undefined
     },
     checked: Boolean,
-    value: [String, Boolean],
+    value: [String, Boolean, Array, Object, Number, Function],
     name: String,
     required: Boolean,
     disabled: Boolean,
@@ -70,9 +70,9 @@ export default {
   }),
   computed: {
     checkboxState() {
-      if (this.model === undefined) return this.value
+      if (this.model === undefined && typeof this.value === 'boolean') return this.value
       if (Array.isArray(this.model)) return this.model.indexOf(this.value) !== -1
-      return this.model || this.value
+      return this.model
     },
     classes() {
       return {
@@ -105,8 +105,7 @@ export default {
     toggle() {
       if(this.disabled) return
 
-      let value = this.model || this.value
-
+      let value = this.model
       if (Array.isArray(value)) {
         const i = value.indexOf(this.value)
         if (i === -1) value.push(this.value)
