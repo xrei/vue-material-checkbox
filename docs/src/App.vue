@@ -84,18 +84,20 @@
             >size 48px</Checkbox>
             <Checkbox 
               v-model="csize2"
+              :value="100"
               color="#0070ff"
               checked
               :size="32"
               :fontSize="20"
             >size 32px</Checkbox>
           </div>
+          <p>This component must be used with <code>v-model</code> to work properly</p>
         </div>
         <div class="example-code">
           <pre v-pre>
             <code class="html">
-  &#x3C;Checkbox v-model="value" color="#f50057" :size="48">size 48px&#x3C;/Checkbox&#x3E;
-  &#x3C;Checkbox v-model="value" color="#0070ff" :size="32">size 32px&#x3C;/Checkbox&#x3E;
+  &#x3C;Checkbox v-model="model" value="any value" color="#f50057" :size="48">size 48px&#x3C;/Checkbox&#x3E;
+  &#x3C;Checkbox v-model="model" color="#0070ff" :size="32">size 32px&#x3C;/Checkbox&#x3E;
             </code>
           </pre>
         </div>
@@ -121,7 +123,7 @@ export default {
       ],
       values: [],
       csize1: false,
-      csize1v: [123],
+      csize1v: {x: 1},
       csize2: false
     }
   },

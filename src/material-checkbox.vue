@@ -57,7 +57,10 @@ export default {
       default: undefined
     },
     checked: Boolean,
-    value: [String, Boolean, Array, Object, Number, Function],
+    value: {
+      type: [String, Boolean, Number, Object, Array, Function],
+      default: undefined
+    },
     name: String,
     required: Boolean,
     disabled: Boolean,
@@ -65,14 +68,16 @@ export default {
     size: Number,
     fontSize: Number
   },
-  data: () => ({
-    uniqueId: ''
-  }),
+  data() {
+    return {
+      uniqueId: '',
+      lv: this.model
+    }
+  },
   computed: {
     checkboxState() {
-      if (this.model === undefined && typeof this.value === 'boolean') return this.value
       if (Array.isArray(this.model)) return this.model.indexOf(this.value) !== -1
-      return this.model
+      return this.model || Boolean(this.lv)
     },
     classes() {
       return {
@@ -105,15 +110,16 @@ export default {
     toggle() {
       if(this.disabled) return
 
-      let value = this.model
-      if (Array.isArray(value)) {
-        const i = value.indexOf(this.value)
-        if (i === -1) value.push(this.value)
-        else value.splice(i, 1)
-      } 
-      else value = !this.checkboxState
+      let v = this.model || this.lv
 
-      this.$emit('change', value)
+      if (Array.isArray(v)) {
+        const i = v.indexOf(this.value)
+        if (i === -1) v.push(this.value)
+        else v.splice(i, 1)
+      } 
+      else v = !v
+      this.lv = v
+      this.$emit('change', v, this.value)
     },
 
     genId() {
@@ -128,6 +134,9 @@ export default {
   watch: {
     checked(v) {
       if (v !== this.checkboxState) this.toggle()
+    },
+    model(v) {
+      this.lv = v
     }
   },
   mounted() {
