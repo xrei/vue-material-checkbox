@@ -74,7 +74,7 @@ You can set size of the box and label font size in pixels:
 | Prop | Type | Default | What For|
 |:-:|:-:|:-:|---|
 | `id` | `String` | `undefined` | **Recommended**. input id associated with label |
-| `model` | `Boolean || Array` | `undefined` | Value for `v-model` |
+| `model` | `Boolean or Array` | `undefined` | Value for `v-model` |
 | `value` | `any` | `undefined` | Value for input, without it checkbox works as `true/false` |
 | `color` | `String` | `undefined` | Pass the color string to change bg-color of checkbox |
 | `checked` | `Boolean` | `false` | is checked by default? |
