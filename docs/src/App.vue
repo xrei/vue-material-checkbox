@@ -18,7 +18,7 @@
               color="#f50057"
               checked
             >Cat</Checkbox>
-            <Checkbox id="" value="dog" v-model="values">Dog</Checkbox>
+            <Checkbox id="" :value="55" v-model="values">55</Checkbox>
             <Checkbox id="" value="husky" v-model="values">Husky</Checkbox>
             <Checkbox id="" value="fish" v-model="values">fish</Checkbox>
           </div>
@@ -75,27 +75,29 @@
         <div class="example-cont">
           <h2>Checkbox sizes</h2>
           <div class="flex">
-            <Checkbox 
-              v-model="csize1"
+            <Checkbox
+              v-model="csize1" 
+              :value="csize1v"
               color="#f50057"
-              checked
               :size="48"
               :fontSize="20"
             >size 48px</Checkbox>
             <Checkbox 
               v-model="csize2"
+              :value="100"
               color="#0070ff"
               checked
               :size="32"
               :fontSize="20"
             >size 32px</Checkbox>
           </div>
+          <p>This component must be used with <code>v-model</code> to work properly</p>
         </div>
         <div class="example-code">
           <pre v-pre>
             <code class="html">
-  &#x3C;Checkbox v-model="value" color="#f50057" :size="48">size 48px&#x3C;/Checkbox&#x3E;
-  &#x3C;Checkbox v-model="value" color="#0070ff" :size="32">size 32px&#x3C;/Checkbox&#x3E;
+  &#x3C;Checkbox v-model="model" value="any value" color="#f50057" :size="48">size 48px&#x3C;/Checkbox&#x3E;
+  &#x3C;Checkbox v-model="model" color="#0070ff" :size="32">size 32px&#x3C;/Checkbox&#x3E;
             </code>
           </pre>
         </div>
@@ -121,6 +123,7 @@ export default {
       ],
       values: [],
       csize1: false,
+      csize1v: {x: 1},
       csize2: false
     }
   },
