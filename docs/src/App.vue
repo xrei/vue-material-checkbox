@@ -89,6 +89,7 @@
               checked
               :size="32"
               :fontSize="20"
+              @change="onChange"
             >size 32px</Checkbox>
           </div>
           <p>This component must be used with <code>v-model</code> to work properly</p>
@@ -130,6 +131,10 @@ export default {
   methods: {
     handleChange(box) {
       box.check = !box.check
+    },
+    onChange(state, value) {
+      console.log(state)
+      console.log(value)
     }
   }
 }
